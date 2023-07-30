@@ -1,0 +1,52 @@
+from tkinter import *
+
+root=Tk()
+
+root.title("Fly Travel World")
+
+root.iconbitmap("tipoconmochila.ico")
+#Icono de raiz
+
+foto=PhotoImage(file="planeworld.png")
+#Creamos una variable foto#
+Label(root, image=foto).pack()
+# Insertamos la foto en la interface #
+
+frame=Frame(root)
+frame.pack()
+Label(frame, text="¿Cual es tu proximo destino?", width=50).pack()
+
+Playa=IntVar()
+Montania=IntVar()
+TurismoRural=IntVar()
+Ciudades=IntVar()
+
+def opcionesDeViaje():
+    opcionElegida="Seleccionó: "
+    if(Playa.get()==1):
+        opcionElegida+= "Playa ;"
+    if (Montania.get() == 2):
+        opcionElegida += "Montaña ;"
+    if (TurismoRural.get() == 3):
+        opcionElegida += "Turismo Rural ;"
+    if (Ciudades.get() == 4):
+        opcionElegida += "Ciudades ;"
+    TextoFinal.config(text=opcionElegida)
+
+
+
+Checkbutton(frame, text="Playa", variable=Playa, onvalue=1, offvalue=0, command=opcionesDeViaje).pack()
+Checkbutton(frame, text="Montaña",variable=Montania, onvalue=2, offvalue=0, command=opcionesDeViaje).pack()
+Checkbutton(frame, text="Turismo rural",variable=TurismoRural, onvalue=3, offvalue=0, command=opcionesDeViaje).pack()
+Checkbutton(frame, text="Ciudades", variable=Ciudades, onvalue=4, offvalue=0, command=opcionesDeViaje).pack()
+
+
+
+TextoFinal=Label(frame)
+TextoFinal.pack()
+
+
+
+
+
+root.mainloop()
